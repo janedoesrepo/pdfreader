@@ -5,7 +5,7 @@
 <h1>Extracting Semi-Structured Data from PDFs on a large scale</h1>
 </center>
 
-FInancial data is often contained in semi-structured PDFs. While many tools exist for data extraction, not all are suitable in every case. Semi-structured hereby refers to the fact that PDFs, in contrast to html, regularly contain information in varying structure: Headlines may or may not exist; the number of pages often varies along with the size and position of characters. 
+Financial data is often contained in semi-structured PDFs. While many tools exist for data extraction, not all are suitable in every case. Semi-structured hereby refers to the fact that PDFs, in contrast to html, regularly contain information in varying structure: Headlines may or may not exist; the number of pages often varies along with the size and position of characters. 
 
 Using insights found on a blog [post](http://www.degeneratestate.org/posts/2016/Jun/15/extracting-tabular-data-from-pdfs/), the following pages will present what the contained data looks like and consider a more general solution for extracting data from PDFs.
 
