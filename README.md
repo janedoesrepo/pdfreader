@@ -4,7 +4,7 @@
 <center>
 <h1>Extracting Semi-Structured Data from PDFs on a large scale</h1>
 </center>
-
+<br>
 Financial data is often contained in semi-structured PDFs. While many tools exist for data extraction, not all are suitable in every case. Semi-structured hereby refers to the fact that PDFs, in contrast to html, regularly contain information in varying structure: Headlines may or may not exist; the number of pages often varies along with the size and position of characters. 
 
 Using insights found on a blog [post](http://www.degeneratestate.org/posts/2016/Jun/15/extracting-tabular-data-from-pdfs/), the following pages will present what the contained data looks like and consider a more general solution for extracting data from PDFs.
@@ -75,8 +75,8 @@ for obj in set(type(o) for o in current_page):
     print(obj)
 ```
 
-    <class 'pdfminer.layout.LTRect'>
     <class 'pdfminer.layout.LTTextBoxHorizontal'>
+    <class 'pdfminer.layout.LTRect'>
     
 
 The following code separates the text from the other objects and shows the first three LTTextBoxes.
@@ -204,7 +204,7 @@ plt.show()
 ```
 
 
-![png](output_16_0.png)
+![png](output_15_0.png)
 
 
 On the left, I plotted all lines/rectangles and the bounding boxes of the characters. On the right, I plotted the bounding boxes of the characters and the TextBoxes. Here you can see why I talk about semi-structured data: the content of the pdf is arranged in rows and columns but there are no real separators to easily distinguish between the end of one logical entity and the beginning of another. The lines may indicate headlines but this conclusion does not seem to be consistent throughout the document. We have to find another approach in order to get this data into structure. Depending on the goal, there are several ways, each of them with its own advantages and disadvantages. By looking at the visualized document structure, I decided to approach this problem by also structuring the text row- and column-wise.
@@ -315,7 +315,7 @@ plt.show()
 ```
 
 
-![png](output_24_0.png)
+![png](output_23_0.png)
 
 
 This works pretty well as a separator. Now I'm going to combine the logic of the **arrange_text()**, **extract_text()** and **create_separators()** functions to structure the text by row and column:
