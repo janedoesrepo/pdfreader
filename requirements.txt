@@ -76,7 +76,7 @@ terminado==0.8.1
 testpath==0.3.1
 tornado==5.1
 traitlets==4.3.2
-Twisted==18.7.0
+twisted>=19.2.1
 typing==3.6.6
 wcwidth==0.1.7
 webencodings==0.5.1
