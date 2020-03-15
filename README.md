@@ -204,7 +204,7 @@ plt.show()
 ```
 
 
-![png](output_15_0.png)
+![png](img/output_15_0.png)
 
 
 On the left, I plotted all lines/rectangles and the bounding boxes of the characters. On the right, I plotted the bounding boxes of the characters and the TextBoxes. Here you can see why I talk about semi-structured data: the content of the pdf is arranged in rows and columns but there are no real separators to easily distinguish between the end of one logical entity and the beginning of another. The lines may indicate headlines but this conclusion does not seem to be consistent throughout the document. We have to find another approach in order to get this data into structure. Depending on the goal, there are several ways, each of them with its own advantages and disadvantages. By looking at the visualized document structure, I decided to approach this problem by also structuring the text row- and column-wise.
@@ -315,7 +315,7 @@ plt.show()
 ```
 
 
-![png](output_23_0.png)
+![png](img/output_23_0.png)
 
 
 This works pretty well as a separator. Now I'm going to combine the logic of the **arrange_text()**, **extract_text()** and **create_separators()** functions to structure the text by row and column:
