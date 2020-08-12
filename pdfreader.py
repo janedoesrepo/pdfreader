@@ -174,7 +174,7 @@ def build_dict_hierarchy(texts):
 
 if __name__ == "__main__":
 
-    data_dir = '../data/'
+    data_dir = 'data/'
 
     if len(sys.argv) == 2:
         file = data_dir + sys.argv[1]
@@ -194,7 +194,7 @@ if __name__ == "__main__":
 
     try:
         output_file = f"{file.rsplit('.', 1)[0]}.csv"
-        df.to_csv(data_dir + output_file)
+        df.to_csv(output_file)
         print(f"Dataframe successfully written to {output_file}")
     except:
         print(f"Dataframe could not be written to {output_file}")

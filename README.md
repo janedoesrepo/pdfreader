@@ -1,4 +1,3 @@
-
 <br>
 <br>
 <center>
@@ -20,13 +19,17 @@ The following code - mainly taken from the blog-post mentioned above - will extr
 ```python
 from pdfquery import PDFQuery
 
+import pdfminer
 from pdfminer.pdfpage import PDFPage, PDFTextExtractionNotAllowed
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.layout import LAParams
 from pdfminer.converter import PDFPageAggregator
 
-from pathlib import Path
-data_dir = Path('../data/')
+import matplotlib.pyplot as plt
+from matplotlib import patches
+%matplotlib inline
+
+import pandas as pd
 ```
 
 
@@ -57,12 +60,12 @@ def extract_page_layouts(file):
     
     return layouts
 
-example_file = data_dir / "example_anonymous.pdf"
+example_file = "data/example_anonymous.pdf"
 page_layouts = extract_page_layouts(example_file)
 print("Number of pages: %d" % len(page_layouts))
 ```
 
-    Open document ..\data\example_anonymous.pdf
+    Open document data/example_anonymous.pdf
     Number of pages: 1
     
 
@@ -83,8 +86,6 @@ The following code separates the text from the other objects and shows the first
 
 
 ```python
-import pdfminer
-
 texts = []
 rects = []
 
@@ -100,9 +101,9 @@ texts[:3]
 
 
 
-    [<LTTextBoxHorizontal(0) 53.030,762.147,104.478,788.091 'Jane Doe\nFoo Bar Ltd.\n'>,
-     <LTTextBoxHorizontal(1) 53.160,676.982,142.979,691.750 'Heading 1 is short\n'>,
-     <LTTextBoxHorizontal(2) 92.640,637.577,146.067,650.321 'Segment 1-1\n'>]
+    [<LTTextBoxHorizontal(0) 53.030,762.147,104.478,784.697 'Jane Doe\nFoo Bar Ltd.\n'>,
+     <LTTextBoxHorizontal(1) 53.160,676.982,142.979,687.302 'Heading 1 is short\n'>,
+     <LTTextBoxHorizontal(2) 92.640,637.577,146.067,646.927 'Segment 1-1\n'>]
 
 
 
@@ -150,10 +151,6 @@ Here comes the neat trick that Iain uses in his post to give an understanding of
 
 
 ```python
-import matplotlib.pyplot as plt
-from matplotlib import patches
-%matplotlib inline
-
 def draw_rect_bbox(bbox, ax, color):
     """
     Draws an unfilled rectable onto ax.
@@ -398,7 +395,6 @@ The visualization of the document shows that the lines which contain the numbers
 
 
 ```python
-import pandas as pd
 columns = ['ID', 'ger_descr', 'eng_desc', 'amount']
 df = pd.DataFrame(columns=columns)
 ```
