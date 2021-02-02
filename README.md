@@ -4,10 +4,13 @@
 <h1>Extracting Semi-Structured Data from PDFs on a large scale</h1>
 </center>
 <br>
+
+### Towards a more general approach for extracting semi-structured data
 Financial data is often contained in semi-structured PDFs. While many tools exist for data extraction, not all are suitable in every case. Semi-structured hereby refers to the fact that PDFs, in contrast to html, regularly contain information in varying structure: Headlines may or may not exist; the number of pages often varies along with the size and position of characters. 
 
 Using insights found on a blog [post](http://www.degeneratestate.org/posts/2016/Jun/15/extracting-tabular-data-from-pdfs/), the following pages will present what the contained data looks like and consider a more general solution for extracting data from PDFs.
 
+### Technical Details
 For reading PDF files, I am using [PDFQuery](https://github.com/jcushman/pdfquery), while the extraction of the layout is done with the help of [pdfminer](https://github.com/euske/pdfminer). PDFQuery turned out to be a lot faster (~5 times) in reading the document, while pdfminer provides the necessary tools to extract the layouts. For the scale of a few thousand documents with multiple pages, a combination of the two was the best choice. 
 
 The PDF layout we are dealing with comes in the form of a LTPage object. Each page in a PDF is described by a LTPage object and the hierarchical structure of lines, boxes, rectangles etc. which it contains. For the full hierarchy look [here](https://euske.github.io/pdfminer/programming.html#layout).
