@@ -43,7 +43,7 @@ Pillow>=8.1.1
 prometheus-client==0.8.0
 prompt-toolkit==3.0.6
 pycparser==2.20
-Pygments==2.6.1
+Pygments==2.7.4
 pyparsing==2.4.7
 pyquery==1.4.1
 pyrsistent==0.16.0
